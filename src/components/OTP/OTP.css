@@ -1,0 +1,201 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.OTPbody{
+    height: 100vh;
+    display: flex;
+    color: white;
+    font-family: Helvetica;
+    
+}
+
+#secondheader{
+    display: none;
+}
+
+
+#left{
+    padding: 40px;
+    width: 50%;
+    background-color: #141414;
+}
+
+
+
+#form{
+    width: 60%;
+    margin-inline: auto;
+    margin-top: 10vh;
+}
+
+h1{
+    font-size: 43px;
+    margin-bottom: 2vh;
+}
+
+#sub-heading{
+    margin-bottom: 5vh;
+}
+
+#inputdiv{
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+    position: relative;
+}
+
+.input{
+    padding-inline: 20px;
+    color: white;
+    height: 55px;
+    border-radius: 5px;
+    background-color: inherit;
+    border: 1px solid #7e7e7e;
+}
+
+#input.active-border{
+    border: 2px solid #7e7e7e;
+}
+
+.errorP{
+    color: red;
+    font-size: 13px;
+}
+
+#submitbutton{
+margin-top: 5vh;
+background-color: rgb(48, 236, 156);
+color: black;
+border: none;
+height: 50px;
+width: 100%;
+font-size: 16px;
+border-radius: 4px;
+cursor: pointer;
+}
+
+#lastp{
+    margin-top: 3vh;
+    text-align: center;
+}
+
+#right{
+    width: 50%;
+    padding: 40px;
+    background-image: url("../../assets/banner-bg.png");
+    background-size: cover;
+    background-position: top;
+}
+
+#rightheader{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+#rightcontent{
+    margin-top: 42vh;
+}
+
+.headingp{
+    font-size: 42px;
+}
+
+#greenp{
+    color: #2cec9a;
+}
+
+#normalp{
+    margin-top: 4vh;
+    font-size: 18px;
+}
+
+
+@media (max-width: 1199px){
+
+    .OTPbody{
+        flex-direction: column;
+        padding-block: 30px;
+        padding-inline: 20px;
+    }
+
+    #secondheader{
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        
+    }
+
+    #secondheaderdiv{
+        display: flex;
+        gap: 15px;
+    }
+
+   #left{
+    padding:unset;
+    width: 50%;
+    margin-inline: auto;
+    margin-top: 10vh;
+   }
+
+   #leftheader{
+    display: none;
+   }
+
+    #form{
+    width: 100%;
+    margin-top: unset;
+}
+   
+    
+    #right{
+        display: none;
+    }
+}
+
+@media (max-width: 619px){
+
+    .OTPbody{
+        flex-direction: column;
+        padding-block: 30px;
+        padding-inline: 20px;
+    }
+
+    #secondheader{
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        
+    }
+
+    #secondheaderdiv{
+        display: flex;
+        gap: 15px;
+    }
+
+   #left{
+    padding:unset;
+    width: 100%;
+    margin-top: 10vh;
+   }
+
+   #leftheader{
+    display: none;
+   }
+
+    #form{
+    width: 100%;
+    margin-top: unset;
+}
+   
+    
+    #right{
+        display: none;
+    }
+}

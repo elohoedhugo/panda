@@ -23,11 +23,7 @@
     background-color: #141414;
 }
 
-#leftheader{
-}
 
-.header--logo{
-}
 
 #form{
     width: 60%;
@@ -61,8 +57,15 @@ h1{
     height: 55px;
     border-radius: 5px;
     background-color: inherit;
-    border: 1px solid white;
+    border: 1px solid #7e7e7e;
+    outline: none;
 }
+
+.input.active-border{
+    border: 2px solid #7e7e7e;
+}
+
+
 
 
 
@@ -70,6 +73,11 @@ h1{
     position: absolute;
     top: 55%;
     left: 90%;
+}
+
+.errorP{
+    color: red;
+    font-size: 13px;
 }
 
 #forgotP{
@@ -82,11 +90,13 @@ h1{
 #submitbutton{
 margin-top: 5vh;
 background-color: rgb(48, 236, 156);
+color: black;
 border: none;
 height: 50px;
 width: 100%;
 font-size: 16px;
 border-radius: 4px;
+cursor: pointer;
 }
 
 #lastp{
