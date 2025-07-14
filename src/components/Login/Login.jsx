@@ -23,7 +23,7 @@ const Login = () => {
 
     if (!email.trim()) {
       newErrors.email = " Email address is required.";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    } else if (!/^[^\s@]+@[^\s@]+(\.[A-Za-z]{2,})?$/.test(email)) {
       newErrors.email = "Enter a valid email address.";
     }
 
