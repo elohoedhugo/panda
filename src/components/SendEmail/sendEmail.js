@@ -3,8 +3,8 @@ import emailjs from '@emailjs/browser'
 export const sendEmail = (form) => {
   
 
-  emailjs.sendForm('service_rsfpk6s', 'template_r11761g', form.current, {
-    publicKey: 'vQHBn9kMcJGMFHBPz',
+  emailjs.sendForm('service_b09toqm', 'template_ptymzvi', form.current, {
+    publicKey: 'nT-tBO3_tJnU9Kywj',
   })
   .then(
     () => {
